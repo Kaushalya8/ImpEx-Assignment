@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="registrationForm">
+        <h2>Register Account</h2>
+        <div class="inputBox">
+            <input id="username" type="text" required />
+            <label >Username</label>
+        </div>
+        <div class="inputBox">
+            <input id="email" type="text" required />
+            <label >Email</label>
+        </div>
+		
+        <div class="inputBox">
+            <input id="password" type="password" required />
+            <label for="">Create Password</label>
+        </div>
+        <div class="inputBox">
+            <input  id="confirmPassword" type="password" required />
+            <label for="">Confirm Password</label>
+        </div>
+		<span id="message" class="error"></span>
+		
+        <div class="inputBox">
+            <input type="submit" value="create" />
+
+        </div>
+    </form>
+    <script>
+        let label = document.querySelectorAll('label').forEach(label => {
+            label.innerHTML = label.innerText.split('').map((letter, i) => `<span style="transition-delay: ${i * 50}ms">${letters}</span>`).join('');
+        })
+    </script>
+	
+	   <script>
+	   
+        document.getElementById("registrationForm").onsubmit = function (e) {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var message = document.getElementById("message");
+
+            if (password !== confirmPassword) {
+                message.innerHTML = "Passwords do not match!";
+                e.preventDefault(); // Prevent form submission
+            } else {
+                message.innerHTML = ""; // Clear the error message
+            }
+        };
+    </script>
+</body>
+
+</html>
